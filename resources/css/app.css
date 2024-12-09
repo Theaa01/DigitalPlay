@@ -1,0 +1,84 @@
+/* resources/css/app.css */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos personalizados para Toastr */
+#toast-container > div.toast {
+    background-color: rgba(75, 85, 99, 0.9) !important; /* Gris oscuro con transparencia */
+    color: #FFFFFF !important; /* Texto blanco */
+    border: 1px solid rgba(55, 65, 81, 0.9) !important; /* Borde ligeramente más oscuro */
+    box-shadow: none !important; /* Eliminar sombras */
+    border-radius: 8px !important; /* Bordes más redondeados */
+    opacity: 0.95 !important; /* Reducir opacidad para mayor sutilidad */
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important; /* Fuente moderna */
+    font-size: 14px !important; /* Tamaño de fuente */
+    cursor: pointer; /* Cambia el cursor para indicar que es clicable */
+    transition: opacity 0.3s ease; /* Transiciones suaves */
+    margin-top: 10px !important; /* Espacio entre notificaciones */
+    margin-bottom: 10px !important; /* Espacio inferior para evitar apilamiento */
+}
+
+/* Eliminar iconos de Toastr */
+#toast-container > div.toast::before {
+    display: none !important; /* Ocultar iconos */
+    content: none !important; /* Asegura que no se muestra ningún contenido */
+}
+
+/* Asegurar que no haya contenido adicional como botones de cerrar */
+#toast-container .toast > button.toast-close-button {
+    display: none !important; /* Ocultar botón de cerrar si lo hay */
+}
+
+#toast-container .toast > .toast-message {
+    margin-left: 0 !important; /* Asegura que no haya espacio reservado para iconos */
+}
+
+/* Ocultar cualquier otro posible icono */
+#toast-container .toast > .toast-icon {
+    display: none !important;
+}
+
+/* Hover effect para hacer la notificación más transparente */
+#toast-container > div.toast:hover {
+    opacity: 0.7 !important; /* Reduce la opacidad al pasar el mouse */
+}
+/* Aumentar la especificidad para asegurar que se apliquen los estilos */
+#toast-container > div.toast.toast-success::before,
+#toast-container > div.toast.toast-error::before,
+#toast-container > div.toast.toast-info::before,
+#toast-container > div.toast.toast-warning::before {
+    display: none !important;
+    content: none !important;
+}
+
+/* Estilos para la navbar en la vista del carrito */
+body.cart-page #navbar-container{
+    background-color: #101010;
+}
+
+body.cart-page #footer-container{
+    background-color: #101010;
+}
+
+/* Estilos para el Dropdown */
+.quantity-dropdown {
+    position: absolute;
+    top: 100%; /* Posiciona el dropdown debajo del botón por defecto */
+    left: 0;
+    background-color: #454545;
+    /* background-opacity: 80%; */
+    backdrop-filter: blur(5px); /* Reemplaza 'backdrop-blur-md' si usas Tailwind */
+    color: white;
+    border-radius: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    z-index: 1000; /* Asegúrate de que sea mayor que otros elementos */
+    display: none; /* Oculto por defecto */
+}
+
+/* Clase para posicionar el Dropdown arriba del botón */
+.quantity-dropdown.dropdown-up {
+    top: auto;
+    bottom: 100%; /* Posiciona el dropdown arriba del botón */
+}
